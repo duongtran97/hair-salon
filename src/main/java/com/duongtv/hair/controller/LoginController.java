@@ -12,6 +12,10 @@ public class LoginController {
     }
     @PostMapping("/login")
     public String index(String username,String password) {
+        boolean check = true;
+        if (check){
+            return "redirect:/user";
+        }
         return "login";
     }
 }
