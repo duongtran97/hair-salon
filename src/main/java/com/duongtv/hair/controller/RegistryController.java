@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class RegistryController {
     @GetMapping("/registry")
     public String index() {
+        
         return "registry";
     }
 }
