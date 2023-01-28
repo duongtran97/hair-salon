@@ -33,6 +33,41 @@ public class UserEntities {
     private Date created_at;
     private String updated_by;
     private String hashcode;
+    private String email;
+    private String address;
+    /*
+     * True - admin
+     * False - user
+     */
+    private boolean is_admin;
+
+    public String getAddress() {
+        return this.address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public boolean isIs_admin() {
+        return this.is_admin;
+    }
+
+    public boolean getIs_admin() {
+        return this.is_admin;
+    }
+
+    public void setIs_admin(boolean is_admin) {
+        this.is_admin = is_admin;
+    }
 
     public Date getDateOfBirth() {
         return this.dateOfBirth;
