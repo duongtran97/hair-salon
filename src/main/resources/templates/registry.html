@@ -12,34 +12,43 @@
     <div class="container col-8" width="17px">
     <form action="/registry" method="post">
       <div class="form-group">
-        <label for="exampleFormControlInput1">Email address</label>
+        <label for="username">Tài khoản</label>
+        <input
+          type="text"
+          class="form-control"
+          id="username"
+          placeholder="Nhập tên tài khoản tại đây!"
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">Email address</label>
         <input
           type="email"
           class="form-control"
-          id="exampleFormControlInput1"
+          id="email"
           placeholder="name@example.com"
         />
       </div>
       <div class="form-group">
-        <label for="fullname">Fullname</label>
+        <label for="fullname">Họ và tên</label>
         <input
           type="text"
           class="form-control"
           id="fullname"
-          placeholder="Type Fullname"
+          placeholder="Nhập họ và tên!"
         />
       </div>
       <div class="form-group">
-        <label for="password">Password</label>
+        <label for="password">Mật khẩu</label>
         <input
           type="password"
           class="form-control"
           id="password"
-          placeholder="Type password in here!"
+          placeholder="Nhập mật khẩu!"
         />
       </div>
       <div class="form-group">
-        <label for="passwordConfirm">Email address</label>
+        <label for="passwordConfirm">Nhập lại mật khẩu</label>
         <input
           type="password"
           class="form-control"
