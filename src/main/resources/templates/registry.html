@@ -79,12 +79,10 @@
       <div class="row">
         <div class="container col">
           <label for="city">Thành phố</label>
-          <select class="form-control" id="exampleFormControlSelect1">
-            <option>Hồ Chí Minh</option>
-            <option>Hà Nội</option>
-            <option>Đà Nẵng</option>
-            <option>Hải Phòng</option>
-            <option>Lạng Sơn</option>
+          <select class="form-control" id="exampleFormControlSelect1"  >
+            <option selected>Chọn thành phố</option>
+            <option th:each="city : ${CityList}" th:value="${city.code}" th:text="${city.nameVn}">
+            </option>
           </select>
         </div>
         <div class="container col">
