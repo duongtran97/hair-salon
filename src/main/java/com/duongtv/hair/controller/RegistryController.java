@@ -5,21 +5,26 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.duongtv.hair.repository.CityRepository;
 
 @Controller
 public class RegistryController {
     @Autowired
-    private CityRepository cityRepository ;
+    private CityRepository cityRepository;
+
     @GetMapping("/registry")
     public String index(Model model) {
-        model.addAttribute("CityList",  cityRepository.findAll());
+        model.addAttribute("CityList", cityRepository.findAll());
         return "registry";
     }
-    @PostMapping("/registry")
-    public String addUser(){
-        
-        return "home";
+
+    @RequestMapping(
+        value = "/registry",
+        method= {RequestMethod.POST})
+    public String addUser() {
+
+        return "login";
     }
 }
