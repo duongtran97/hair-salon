@@ -88,31 +88,22 @@
         <div class="container col">
           <label for="district">Quận/Huyện</label>
           <select class="form-control" id="exampleFormControlSelect1">
-            <option>Đông Anh</option>
-            <option>Hai Bà Trưng</option>
-            <option>Hoàn Kiếm</option>
-            <option>Tây Hồ</option>
-            <option>Chương Mỹ</option>
+            <option>Chọn Quận/Huyện</option>
+            <option th:each="district : ${DistrictLst}" th:value="${district.code}" th:text="${district.nameVn}"></option>
           </select>
         </div>
         <div class="container col">
           <label for="village">Xã/Phường</label>
           <select class="form-control" id="exampleFormControlSelect1">
-            <option>Nguyên Khê</option>
-            <option>Việt Hùng</option>
-            <option>Hải Bối</option>
-            <option>Vĩnh Ngọc</option>
-            <option>Trung Oai</option>
+            <option>Chọn xã/phường</option>
+            <option th:each="village : ${VillageLst}" th:value="${village.code}" th:text="${village.nameVn}"></option>
           </select>
         </div>
         <div class="container col">
           <label for="land">Thôn/Tổ dân phố</label>
           <select class="form-control" id="exampleFormControlSelect1">
-            <option>Cán Khê</option>
-            <option>Nguyên Khê</option>
-            <option>Sơn Du</option>
-            <option>Tiên Hùng</option>
-            <option>Khê Nữ</option>
+            <option>Chọn Thôn/Tổ dân phố</option>
+            <option th:each="land : ${LandLst}" th:value="${land.code}" th:text="${land.nameVn}"></option>
           </select>
         </div>
       </div>
