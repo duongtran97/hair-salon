@@ -10,7 +10,7 @@
   </head>
   <body>
     <div class="container col-8" width="17px">
-    <form action="/registry" method="post">
+    <form action="#" th:action="@{/registry}" th:object="${userEntities}" method="post">
       <div class="form-group">
         <label for="username">Tài khoản</label>
         <input
@@ -34,7 +34,7 @@
         <input
           type="text"
           class="form-control"
-          id="fullname"
+          id="fullname" th:field="*{fullname}"
           placeholder="Nhập họ và tên!"
         />
       </div>

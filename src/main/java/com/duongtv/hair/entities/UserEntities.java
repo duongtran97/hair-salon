@@ -14,6 +14,23 @@ public class UserEntities {
      */
     public UserEntities() {
     }
+
+    public UserEntities(String fullname, Date dateOfBirth, String username, String password, String phone, int is_deleted, Date updated_at, Date created_at, String updated_by, String hashcode, String email, String address, boolean is_admin) {
+        this.fullname = fullname;
+        this.dateOfBirth = dateOfBirth;
+        this.username = username;
+        this.password = password;
+        this.phone = phone;
+        this.is_deleted = is_deleted;
+        this.updated_at = updated_at;
+        this.created_at = created_at;
+        this.updated_by = updated_by;
+        this.hashcode = hashcode;
+        this.email = email;
+        this.address = address;
+        this.is_admin = is_admin;
+    }
+
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long autoId;
