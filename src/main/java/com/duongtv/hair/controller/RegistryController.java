@@ -1,4 +1,7 @@
 package com.duongtv.hair.controller;
+import com.duongtv.hair.repository.DistrictRepository;
+import com.duongtv.hair.repository.LandRepository;
+import com.duongtv.hair.repository.VillageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,10 +18,18 @@ import com.duongtv.hair.repository.CityRepository;
 public class RegistryController {
     @Autowired
     private CityRepository cityRepository;
-
+    @Autowired
+    private DistrictRepository districtRepository;
+    @Autowired
+    private VillageRepository villageRepository;
+    @Autowired
+    private LandRepository landRepository;
     @GetMapping("/registry")
     public String index(Model model) {
         model.addAttribute("CityList", cityRepository.findAll());
+        model.addAttribute("DistrictLst",districtRepository.findAll());
+        model.addAttribute("VillageLst",villageRepository.findAll());
+        model.addAttribute("LandLst",landRepository.findAll());
         return "registry";
     }
 

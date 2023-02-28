@@ -15,10 +15,46 @@ public class Land {
     private String nameVn;
     private String codeVillage; 
     private String nameEn;
-    private String codeLand;
+    private String codeDistrict;
     private Date createdAt;
     private Date updatedAt;
     private String updatedBy;
+    private String code;
+    private String codeCity;
+
+    private boolean isDeleted;
+
+    public boolean isDeleted() {
+        return isDeleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        isDeleted = deleted;
+    }
+
+    public String getCodeDistrict() {
+        return codeDistrict;
+    }
+
+    public void setCodeDistrict(String codeDistrict) {
+        this.codeDistrict = codeDistrict;
+    }
+
+    public String getCodeCity() {
+        return codeCity;
+    }
+
+    public void setCodeCity(String codeCity) {
+        this.codeCity = codeCity;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
 
     public Long getAutoId() {
         return this.autoId;
@@ -50,14 +86,6 @@ public class Land {
 
     public void setNameEn(String nameEn) {
         this.nameEn = nameEn;
-    }
-
-    public String getCodeLand() {
-        return this.codeLand;
-    }
-
-    public void setCodeLand(String codeLand) {
-        this.codeLand = codeLand;
     }
 
     public Date getCreatedAt() {

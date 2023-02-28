@@ -28,7 +28,6 @@ public class CommonUtils {
     // try {
     //     checkPassword(null, "duong1997", salt);
     // } catch (NoSuchAlgorithmException e) {
-    //     // TODO Auto-generated catch block
     //     e.printStackTrace();
     // }
     // }

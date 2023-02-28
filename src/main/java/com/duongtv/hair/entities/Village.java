@@ -12,90 +12,94 @@ public class Village {
 
     }
     @Id
-    private Long auto_id;
-    private String code_city;
-    private String code_district;
-    private String name_vn;
-    private String name_en;
-    private boolean is_deleted;
-    private Date created_at;
-    private Date updated_at;
-    private String updated_by;
+    private Long autoId;
+    private String codeCity;
+    private String codeDistrict;
+    private String nameVn;
+    private String nameEn;
+    private boolean isDeleted;
+    private Date createdAt;
+    private Date updatedAt;
+    private String updatedBy;
+    private String code;
 
-    public Long getAuto_id() {
-        return this.auto_id;
+    public Long getAutoId() {
+        return autoId;
     }
 
-    public void setAuto_id(Long auto_id) {
-        this.auto_id = auto_id;
+    public void setAutoId(Long autoId) {
+        this.autoId = autoId;
     }
 
-    public String getCode_city() {
-        return this.code_city;
+    public String getCodeCity() {
+        return codeCity;
     }
 
-    public void setCode_city(String code_city) {
-        this.code_city = code_city;
+    public void setCodeCity(String codeCity) {
+        this.codeCity = codeCity;
     }
 
-    public String getCode_district() {
-        return this.code_district;
+    public String getCodeDistrict() {
+        return codeDistrict;
     }
 
-    public void setCode_district(String code_district) {
-        this.code_district = code_district;
+    public void setCodeDistrict(String codeDistrict) {
+        this.codeDistrict = codeDistrict;
     }
 
-    public String getName_vn() {
-        return this.name_vn;
+    public String getNameVn() {
+        return nameVn;
     }
 
-    public void setName_vn(String name_vn) {
-        this.name_vn = name_vn;
+    public void setNameVn(String nameVn) {
+        this.nameVn = nameVn;
     }
 
-    public String getName_en() {
-        return this.name_en;
+    public String getNameEn() {
+        return nameEn;
     }
 
-    public void setName_en(String name_en) {
-        this.name_en = name_en;
+    public void setNameEn(String nameEn) {
+        this.nameEn = nameEn;
     }
 
-    public boolean isIs_deleted() {
-        return this.is_deleted;
+    public boolean isDeleted() {
+        return isDeleted;
     }
 
-    public boolean getIs_deleted() {
-        return this.is_deleted;
+    public void setDeleted(boolean deleted) {
+        isDeleted = deleted;
     }
 
-    public void setIs_deleted(boolean is_deleted) {
-        this.is_deleted = is_deleted;
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
-    public Date getCreated_at() {
-        return this.created_at;
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public void setCreated_at(Date created_at) {
-        this.created_at = created_at;
+    public Date getUpdatedAt() {
+        return updatedAt;
     }
 
-    public Date getUpdated_at() {
-        return this.updated_at;
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
-    public void setUpdated_at(Date updated_at) {
-        this.updated_at = updated_at;
+    public String getUpdatedBy() {
+        return updatedBy;
     }
 
-    public String getUpdated_by() {
-        return this.updated_by;
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy;
     }
 
-    public void setUpdated_by(String updated_by) {
-        this.updated_by = updated_by;
+    public String getCode() {
+        return code;
     }
 
+    public void setCode(String code) {
+        this.code = code;
+    }
 }

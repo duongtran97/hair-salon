@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -9,14 +9,17 @@
     <title>Spring Boot Learn</title>
   </head>
   <body>
-    <div class="container col-8" width="17px">
-    <form action="#" th:action="@{/registry}" th:object="${userEntities}" method="post">
+    <div class="container col-6" >
+    <form action="#" th:action="@{/registry}"
+          th:object="${userEntities}"
+          method="post">
       <div class="form-group">
         <label for="username">Tài khoản</label>
         <input
           type="text"
           class="form-control"
           id="username"
+          th:field="*{username}"
           placeholder="Nhập tên tài khoản tại đây!"
         />
       </div>
@@ -26,6 +29,7 @@
           type="email"
           class="form-control"
           id="email"
+          th:field="*{email}"
           placeholder="name@example.com"
         />
       </div>
@@ -34,7 +38,8 @@
         <input
           type="text"
           class="form-control"
-          id="fullname" th:field="*{fullname}"
+          id="fullname"
+          th:field="*{fullname}"
           placeholder="Nhập họ và tên!"
         />
       </div>
@@ -44,6 +49,7 @@
           type="password"
           class="form-control"
           id="password"
+          th:field="*{password}"
           placeholder="Nhập mật khẩu!"
         />
       </div>
@@ -62,6 +68,7 @@
           type="date"
           class="form-control"
           id="dateOfBirh"
+          th:field="*{dateOfBirth}"
         />
       </div>
       <div class="form-group">
@@ -70,38 +77,44 @@
           type="number"
           class="form-control"
           id="phone"
+          th:field="*{phone}"
         />
       </div>
       <div class="form-group">
         <div class="row">
-        <label for="address">Địa chỉ</label>
+        <label >Địa chỉ</label>
       </div>
       <div class="row">
         <div class="container col">
-          <label for="city">Thành phố</label>
-          <select class="form-control" id="exampleFormControlSelect1"  >
+          <label >Thành phố</label>
+          <select class="form-control" id="selectCity"  th:field="*{cityCode}">
             <option selected>Chọn thành phố</option>
             <option th:each="city : ${CityList}" th:value="${city.code}" th:text="${city.nameVn}">
             </option>
           </select>
         </div>
         <div class="container col">
-          <label for="district">Quận/Huyện</label>
-          <select class="form-control" id="exampleFormControlSelect1">
+          <label >Quận/Huyện</label>
+          <select class="form-control" id="selectDistrict">
             <option>Chọn Quận/Huyện</option>
-            <option th:each="district : ${DistrictLst}" th:value="${district.code}" th:text="${district.nameVn}"></option>
+            <option th:each="district : ${DistrictLst}" th:value="${district.codeDistrict}" th:text="${district.nameVn}"></option>
           </select>
         </div>
         <div class="container col">
-          <label for="village">Xã/Phường</label>
-          <select class="form-control" id="exampleFormControlSelect1">
+          <label >Xã/Phường</label>
+          <select class="form-control" id="selectVillage">
             <option>Chọn xã/phường</option>
-            <option th:each="village : ${VillageLst}" th:value="${village.code}" th:text="${village.nameVn}"></option>
+            <option
+                    th:each="village : ${VillageLst}"
+                    th:value="${village.code}"
+                    th:text="${village.nameVn}">
+
+            </option>
           </select>
         </div>
         <div class="container col">
-          <label for="land">Thôn/Tổ dân phố</label>
-          <select class="form-control" id="exampleFormControlSelect1">
+          <label >Thôn/Tổ dân phố</label>
+          <select class="form-control" id="selectLand">
             <option>Chọn Thôn/Tổ dân phố</option>
             <option th:each="land : ${LandLst}" th:value="${land.code}" th:text="${land.nameVn}"></option>
           </select>
