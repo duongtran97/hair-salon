@@ -13,6 +13,7 @@ public class UserEntities {
      * Ham khoi tao 
      */
     public UserEntities() {
+        isAdmin = false;
     }
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -20,7 +21,7 @@ public class UserEntities {
     /*
      * fullname of user
      */
-    private String fullName;
+    private String fullname;
     /*
      * Date of Birrth
      */
@@ -52,12 +53,12 @@ public class UserEntities {
         this.autoId = autoId;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getFullname() {
+        return fullname;
     }
 
     public void setFullName(String fullName) {
-        this.fullName = fullName;
+        this.fullname = fullName;
     }
 
     public Date getDateOfBirth() {
@@ -184,7 +185,7 @@ public class UserEntities {
     public String toString() {
         return "{" +
             " autoId='" + getAutoId() + "'" +
-            ", name='" + getFullName() + "'" +
+            ", name='" + getFullname() + "'" +
             ", dateOfBirth='" + getDateOfBirth() + "'" +
             "}";
     }

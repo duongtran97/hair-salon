@@ -10,8 +10,7 @@
   </head>
   <body>
     <div class="container col-6" >
-    <form action="#" th:action="@{/registry}"
-          th:object="${userEntities}"
+    <form th:action="@{/registry}"
           method="post">
       <div class="form-group">
         <label for="username">Tài khoản</label>
@@ -87,7 +86,7 @@
       <div class="row">
         <div class="container col">
           <label >Thành phố</label>
-          <select class="form-control" id="selectCity"  th:field="*{cityCode}">
+          <select class="form-control" id="selectCity"  th:field="*{codeCity}">
             <option selected>Chọn thành phố</option>
             <option th:each="city : ${CityList}" th:value="${city.code}" th:text="${city.nameVn}">
             </option>
@@ -95,14 +94,14 @@
         </div>
         <div class="container col">
           <label >Quận/Huyện</label>
-          <select class="form-control" id="selectDistrict">
+          <select class="form-control" id="selectDistrict" th:field="*{codeDistrict}">
             <option>Chọn Quận/Huyện</option>
             <option th:each="district : ${DistrictLst}" th:value="${district.codeDistrict}" th:text="${district.nameVn}"></option>
           </select>
         </div>
         <div class="container col">
           <label >Xã/Phường</label>
-          <select class="form-control" id="selectVillage">
+          <select class="form-control" id="selectVillage" th:field="*{codeVillage}">
             <option>Chọn xã/phường</option>
             <option
                     th:each="village : ${VillageLst}"
@@ -114,7 +113,7 @@
         </div>
         <div class="container col">
           <label >Thôn/Tổ dân phố</label>
-          <select class="form-control" id="selectLand">
+          <select class="form-control" id="selectLand" th:field="*{codeLand}">
             <option>Chọn Thôn/Tổ dân phố</option>
             <option th:each="land : ${LandLst}" th:value="${land.code}" th:text="${land.nameVn}"></option>
           </select>

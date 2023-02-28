@@ -2,6 +2,7 @@ package com.duongtv.hair.controller;
 import com.duongtv.hair.repository.DistrictRepository;
 import com.duongtv.hair.repository.LandRepository;
 import com.duongtv.hair.repository.VillageRepository;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,10 +35,9 @@ public class RegistryController {
     }
 
     @PostMapping("/registry")
-    public String addUser(@ModelAttribute UserEntities userEntities,Model model) {
-        // String fullname = userEntities.fullname;
+    public String addUser(@ModelAttribute("userEntities") UserEntities userEntities, Model model) {
+        String fullname = userEntities.getFullname();
         System.out.println(userEntities.toString());
-        // UserEntities user = new UserEntities( null, null, null, null, null, 0, null, null, null, null, null, null, false)
         return "login";
     }
 }
