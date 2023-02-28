@@ -26,7 +26,7 @@ public class HomeController {
             // userRepositiry.findAll();
             model.addAttribute("UserList", userRepository.findAll());
             // userRepository.findAll().forEach(System.out::println);
-            userRepository.findByFullname("duong").forEach(System.out::println);
+//            userRepository.findByFullname("duong").forEach(System.out::println);
             return "user";
         } catch (Exception e) {
             System.err.println(e.getMessage());
