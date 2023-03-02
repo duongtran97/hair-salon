@@ -1,12 +1,15 @@
 package com.duongtv.hair.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 
-@Controller
+@ControllerAdvice
 public class ExceptionHandlingController {
-    
-    public String logErrorMessage() {
-
-     return "error";   
+    @ExceptionHandler(Exception.class)
+    public String logErrorMessage(Exception e, Model model) {
+        model.addAttribute("messsage",e.getMessage());
+     return "error";
     }
 }

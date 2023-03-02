@@ -1,4 +1,5 @@
 package com.duongtv.hair.controller;
+import com.duongtv.hair.entities.UserFormEntities;
 import com.duongtv.hair.repository.DistrictRepository;
 import com.duongtv.hair.repository.LandRepository;
 import com.duongtv.hair.repository.VillageRepository;
@@ -6,6 +7,7 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,6 +27,7 @@ public class RegistryController {
     private VillageRepository villageRepository;
     @Autowired
     private LandRepository landRepository;
+
     @GetMapping("/registry")
     public String index(Model model) {
         model.addAttribute("CityList", cityRepository.findAll());
@@ -35,9 +38,13 @@ public class RegistryController {
     }
 
     @PostMapping("/registry")
-    public String addUser(@ModelAttribute("userEntities") UserEntities userEntities, Model model) {
-        String fullname = userEntities.getFullname();
-        System.out.println(userEntities.toString());
+    public String addUser(@ModelAttribute UserFormEntities userFormEntities, BindingResult bindingResult, Model model) {
+        if(bindingResult.hasErrors()){
+//            String fullname = userFormEntities.getFullname();
+//            System.out.println(userFormEntities.toString());
+            return "redirect:/registry";
+        }
+
         return "login";
     }
 }
