@@ -3,16 +3,12 @@ import com.duongtv.hair.entities.UserFormEntities;
 import com.duongtv.hair.repository.DistrictRepository;
 import com.duongtv.hair.repository.LandRepository;
 import com.duongtv.hair.repository.VillageRepository;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.duongtv.hair.entities.UserEntities;
 import com.duongtv.hair.repository.CityRepository;
@@ -34,17 +30,16 @@ public class RegistryController {
         model.addAttribute("DistrictLst",districtRepository.findAll());
         model.addAttribute("VillageLst",villageRepository.findAll());
         model.addAttribute("LandLst",landRepository.findAll());
+        model.addAttribute("userFormEntities",new UserFormEntities());
         return "registry";
     }
 
     @PostMapping("/registry")
-    public String addUser(@ModelAttribute UserFormEntities userFormEntities, BindingResult bindingResult, Model model) {
-        if(bindingResult.hasErrors()){
-//            String fullname = userFormEntities.getFullname();
-//            System.out.println(userFormEntities.toString());
-            return "redirect:/registry";
-        }
+    public String addUser(@ModelAttribute UserFormEntities userFormEntities, Model model) {
+        System.out.println(userFormEntities.toString());
+        System.out.println(userFormEntities.getDateOfBirth());
+        UserEntities userEntities = new UserEntities();
 
-        return "login";
+        return "redirect:/login";
     }
 }

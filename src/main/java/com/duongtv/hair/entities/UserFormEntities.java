@@ -1,5 +1,7 @@
 package com.duongtv.hair.entities;
 
+import org.springframework.context.annotation.Bean;
+
 import java.sql.Date;
 
 public class UserFormEntities {
@@ -11,7 +13,7 @@ public class UserFormEntities {
     /*
      * Date of Birrth
      */
-    private Date dateOfBirth;
+    private String dateOfBirth;
     private String username;
     private String password;
     private String phone;
@@ -47,11 +49,11 @@ public class UserFormEntities {
         this.fullname = fullname;
     }
 
-    public Date getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
