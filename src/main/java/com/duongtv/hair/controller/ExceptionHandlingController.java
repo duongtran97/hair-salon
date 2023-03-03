@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class ExceptionHandlingController {
     @ExceptionHandler(Exception.class)
     public String logErrorMessage(Exception e, Model model) {
-        model.addAttribute("messsage","Loi gi do ");
+        model.addAttribute("message",e.getMessage());
      return "error";
     }
 }

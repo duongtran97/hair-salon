@@ -1,14 +1,14 @@
 package com.duongtv.hair.utils;
 
 import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
-import org.springframework.security.crypto.scrypt.SCryptPasswordEncoder;
 
 import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import java.security.spec.KeySpec;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 
-import javax.crypto.spec.PBEKeySpec;
 
 
 public class CommonUtils {
@@ -18,11 +18,9 @@ public class CommonUtils {
         int i = 1;
         char charAscii = (char) random.nextInt(33,126);
         while(i<16){
-
             salt.append(charAscii);
             charAscii = (char) random.nextInt(33,126);
             i++;
-
         }
 
         return salt.toString();
@@ -32,7 +30,7 @@ public class CommonUtils {
 
         Pbkdf2PasswordEncoder encoder = new Pbkdf2PasswordEncoder(salt,15,100000,Pbkdf2PasswordEncoder.SecretKeyFactoryAlgorithm.PBKDF2WithHmacSHA256);
         encoder.setEncodeHashAsBase64(true);
-        boolean result = encoder.matches(input,password);
+        boolean result = encoder.matches(input+salt,password);
         return result;
     }
     public static String encodePassword(String password, String salt){
@@ -42,13 +40,25 @@ public class CommonUtils {
         String passwordEncode = encoder.encode(password);
         return passwordEncode;
     }
-     public static void main(String[] args) {
-//         System.out.println(encodePassword("duong1997","sj7pf#4tpYh+Wo$"));
-         try {
-             System.out.println(encodePassword("duong1997","sj7pf#4tpYh+Wo$"));
-             System.out.println(checkPassword("8iTMlc447/CDZuLY127cMvUES1Rhvq3S2lDUVjUAuD8ssewt1FGzL4RGyMkdLCA=","duong197","sj7pf#4tpYh+Wo$"));
-         } catch (NoSuchAlgorithmException e) {
-             throw new RuntimeException(e);
-         }
-     }
+    public static Date convertStringToDate(String input) throws ParseException {
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        Date startDate ;
+        startDate = df.parse(input);
+        String newDateString = df.format(startDate);
+        return startDate;
+    }
+//     public static void main(String[] args) {
+//         try {
+//             System.out.println(convertStringToDate("2023-03-28"));
+//         } catch (ParseException e) {
+//             throw new RuntimeException(e);
+//         }
+//         try {
+//             System.out.println(encodePassword("duong1997","sj7pf#4tpYh+Wo$"));
+//             System.out.println(createSalt());
+//             System.out.println(checkPassword("8iTMlc447/CDZuLY127cMvUES1Rhvq3S2lDUVjUAuD8ssewt1FGzL4RGyMkdLCA=","duong1997","sj7pf#4tpYh+Wo$"));
+//         } catch (NoSuchAlgorithmException e) {
+//             throw new RuntimeException(e);
+//         }
+//     }
 }

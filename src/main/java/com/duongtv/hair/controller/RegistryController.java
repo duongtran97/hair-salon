@@ -3,6 +3,7 @@ import com.duongtv.hair.entities.UserFormEntities;
 import com.duongtv.hair.repository.DistrictRepository;
 import com.duongtv.hair.repository.LandRepository;
 import com.duongtv.hair.repository.VillageRepository;
+import com.duongtv.hair.utils.CommonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.duongtv.hair.entities.UserEntities;
 import com.duongtv.hair.repository.CityRepository;
+
+import java.sql.Date;
+import java.text.ParseException;
 
 @Controller
 public class RegistryController {
@@ -35,11 +39,22 @@ public class RegistryController {
     }
 
     @PostMapping("/registry")
-    public String addUser(@ModelAttribute UserFormEntities userFormEntities, Model model) {
-        System.out.println(userFormEntities.toString());
-        System.out.println(userFormEntities.getDateOfBirth());
+    public String addUser(@ModelAttribute UserFormEntities userFormEntities, Model model) throws ParseException {
+//        System.out.println(userFormEntities.getDateOfBirth());
         UserEntities userEntities = new UserEntities();
-
+        userEntities.setAdmin(false);
+        userEntities.setCodeCity(userFormEntities.getCodeCity());
+        userEntities.setCodeDistrict(userFormEntities.getCodeDistrict());
+        userEntities.setCodeLand(userFormEntities.getCodeLand());
+        userEntities.setCodeVillage(userFormEntities.getCodeVillage());
+        userEntities.setDateOfBirth((Date) CommonUtils.convertStringToDate(userFormEntities.getDateOfBirth()));
+        userEntities.setEmail(userFormEntities.getEmail());
+        userEntities.setFullName(userFormEntities.getFullname());
+        userEntities.setHashcode(CommonUtils.createSalt());
+        userEntities.setIsDeleted(0);
+        userEntities.setPassword(CommonUtils.encodePassword(userFormEntities.getPassword(),userEntities.getHashcode()));
+        //        System.out.println(userFormEntities.getDateOfBirth());
+//        System.out.println(CommonUtils.convertStringToDate(userFormEntities.getDateOfBirth()));
         return "redirect:/login";
     }
 }
