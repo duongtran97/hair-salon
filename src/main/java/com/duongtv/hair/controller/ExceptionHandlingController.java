@@ -10,6 +10,6 @@ public class ExceptionHandlingController {
     @ExceptionHandler(Exception.class)
     public String logErrorMessage(Exception e, Model model) {
         model.addAttribute("message",e.getMessage());
-     return "error";
+        return "error";
     }
 }

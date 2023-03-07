@@ -43,8 +43,10 @@ public class CommonUtils {
     public static Date convertStringToDate(String input) throws ParseException {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         Date startDate ;
-        startDate = df.parse(input);
-        String newDateString = df.format(startDate);
+        if(input.isEmpty()){
+            input = "1997-01-31";
+        }
+        startDate =  df.parse(input);
         return startDate;
     }
 //     public static void main(String[] args) {

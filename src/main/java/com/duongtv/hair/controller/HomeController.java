@@ -20,6 +20,10 @@ public class HomeController {
     public String home() {
         return "product";
     }
+    @GetMapping("/product")
+    public String getProduct(){
+        return "product";
+    }
     @GetMapping("/user")
     public String user(Model model) {
         try {

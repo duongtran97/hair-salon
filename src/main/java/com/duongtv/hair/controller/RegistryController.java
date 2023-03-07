@@ -1,8 +1,6 @@
 package com.duongtv.hair.controller;
 import com.duongtv.hair.entities.UserFormEntities;
-import com.duongtv.hair.repository.DistrictRepository;
-import com.duongtv.hair.repository.LandRepository;
-import com.duongtv.hair.repository.VillageRepository;
+import com.duongtv.hair.repository.*;
 import com.duongtv.hair.utils.CommonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,9 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.duongtv.hair.entities.UserEntities;
-import com.duongtv.hair.repository.CityRepository;
 
-import java.sql.Date;
+import java.util.Date;
 import java.text.ParseException;
 
 @Controller
@@ -27,6 +24,8 @@ public class RegistryController {
     private VillageRepository villageRepository;
     @Autowired
     private LandRepository landRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     @GetMapping("/registry")
     public String index(Model model) {
@@ -55,6 +54,7 @@ public class RegistryController {
         userEntities.setPassword(CommonUtils.encodePassword(userFormEntities.getPassword(),userEntities.getHashcode()));
         //        System.out.println(userFormEntities.getDateOfBirth());
 //        System.out.println(CommonUtils.convertStringToDate(userFormEntities.getDateOfBirth()));
+        userRepository.save(userEntities);
         return "redirect:/login";
     }
 }
