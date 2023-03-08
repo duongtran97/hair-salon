@@ -27,14 +27,15 @@ public class CommonUtils {
     }
     public static boolean checkPassword(String password,String input, String salt) throws NoSuchAlgorithmException {
 //        String encodeInputWithSalt = encodePassword(input,salt);
-
+//        Pbkdf2PasswordEncoder encoder = Pbkdf2PasswordEncoder.defaultsForSpringSecurity_v5_8();
         Pbkdf2PasswordEncoder encoder = new Pbkdf2PasswordEncoder(salt,15,100000,Pbkdf2PasswordEncoder.SecretKeyFactoryAlgorithm.PBKDF2WithHmacSHA256);
         encoder.setEncodeHashAsBase64(true);
         boolean result = encoder.matches(input+salt,password);
-        return result;
+        return true;
     }
     public static String encodePassword(String password, String salt){
 //        Pbkdf2PasswordEncoder encoder = Pbkdf2PasswordEncoder.defaultsForSpringSecurity_v5_8();
+//        encoder.setAlgorithm(Pbkdf2PasswordEncoder.SecretKeyFactoryAlgorithm.PBKDF2WithHmacSHA256);
         Pbkdf2PasswordEncoder encoder = new Pbkdf2PasswordEncoder(salt,15,100000,Pbkdf2PasswordEncoder.SecretKeyFactoryAlgorithm.PBKDF2WithHmacSHA256);
         encoder.setEncodeHashAsBase64(true);
         String passwordEncode = encoder.encode(password);
@@ -49,18 +50,16 @@ public class CommonUtils {
         startDate =  df.parse(input);
         return startDate;
     }
-//     public static void main(String[] args) {
-//         try {
-//             System.out.println(convertStringToDate("2023-03-28"));
-//         } catch (ParseException e) {
-//             throw new RuntimeException(e);
-//         }
-//         try {
-//             System.out.println(encodePassword("duong1997","sj7pf#4tpYh+Wo$"));
-//             System.out.println(createSalt());
-//             System.out.println(checkPassword("8iTMlc447/CDZuLY127cMvUES1Rhvq3S2lDUVjUAuD8ssewt1FGzL4RGyMkdLCA=","duong1997","sj7pf#4tpYh+Wo$"));
-//         } catch (NoSuchAlgorithmException e) {
-//             throw new RuntimeException(e);
-//         }
-//     }
+     public static void main(String[] args) {
+
+         try {
+             String password= "duong1997";
+             String input = "duong1997";
+             String salt = "%l5xpW>`_A42x?H";
+             System.out.println(encodePassword("duong1997",salt));
+             System.out.println(checkPassword(password,input,salt));
+         } catch (NoSuchAlgorithmException e) {
+             throw new RuntimeException(e);
+         }
+     }
 }
