@@ -22,7 +22,7 @@ public class UserService {
         String salt = userEntities.getHashcode();
         String password = userEntities.getPassword();
         String input = userForm.getPassword();
-        checkPassword = CommonUtils.checkPassword(password,input,salt);
+        checkPassword = CommonUtils.checkPassword(password,input);
         return checkPassword;
     }
 }

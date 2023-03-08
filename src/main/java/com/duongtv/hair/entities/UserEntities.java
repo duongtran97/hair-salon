@@ -185,8 +185,8 @@ public class UserEntities {
     public String toString() {
         return "{" +
             " autoId='" + getAutoId() + "'" +
-            ", name='" + getFullname() + "'" +
-            ", dateOfBirth='" + getDateOfBirth() + "'" +
+            ", email='" + getEmail() + "'" +
+            ", password='" + getPassword() + "'" +
             "}";
     }
 

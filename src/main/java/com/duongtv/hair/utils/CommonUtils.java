@@ -25,18 +25,20 @@ public class CommonUtils {
 
         return salt.toString();
     }
-    public static boolean checkPassword(String password,String input, String salt) throws NoSuchAlgorithmException {
+    public static boolean checkPassword(String password,String input) throws NoSuchAlgorithmException {
 //        String encodeInputWithSalt = encodePassword(input,salt);
-
-        Pbkdf2PasswordEncoder encoder = new Pbkdf2PasswordEncoder(salt,15,100000,Pbkdf2PasswordEncoder.SecretKeyFactoryAlgorithm.PBKDF2WithHmacSHA256);
+        Pbkdf2PasswordEncoder encoder = Pbkdf2PasswordEncoder.defaultsForSpringSecurity_v5_8();
+//        Pbkdf2PasswordEncoder encoder = new Pbkdf2PasswordEncoder(salt,15,100000,Pbkdf2PasswordEncoder.SecretKeyFactoryAlgorithm.PBKDF2WithHmacSHA256);
         encoder.setEncodeHashAsBase64(true);
-        boolean result = encoder.matches(input+salt,password);
+        encoder.setAlgorithm(Pbkdf2PasswordEncoder.SecretKeyFactoryAlgorithm.PBKDF2WithHmacSHA256);
+        boolean result = encoder.matches(input,password);
         return result;
     }
     public static String encodePassword(String password, String salt){
-//        Pbkdf2PasswordEncoder encoder = Pbkdf2PasswordEncoder.defaultsForSpringSecurity_v5_8();
-        Pbkdf2PasswordEncoder encoder = new Pbkdf2PasswordEncoder(salt,15,100000,Pbkdf2PasswordEncoder.SecretKeyFactoryAlgorithm.PBKDF2WithHmacSHA256);
+        Pbkdf2PasswordEncoder encoder = Pbkdf2PasswordEncoder.defaultsForSpringSecurity_v5_8();
+//        Pbkdf2PasswordEncoder encoder = new Pbkdf2PasswordEncoder(salt,15,100000,Pbkdf2PasswordEncoder.SecretKeyFactoryAlgorithm.PBKDF2WithHmacSHA256);
         encoder.setEncodeHashAsBase64(true);
+        encoder.setAlgorithm(Pbkdf2PasswordEncoder.SecretKeyFactoryAlgorithm.PBKDF2WithHmacSHA256);
         String passwordEncode = encoder.encode(password);
         return passwordEncode;
     }
@@ -51,14 +53,11 @@ public class CommonUtils {
     }
 //     public static void main(String[] args) {
 //         try {
-//             System.out.println(convertStringToDate("2023-03-28"));
-//         } catch (ParseException e) {
-//             throw new RuntimeException(e);
-//         }
-//         try {
-//             System.out.println(encodePassword("duong1997","sj7pf#4tpYh+Wo$"));
-//             System.out.println(createSalt());
-//             System.out.println(checkPassword("8iTMlc447/CDZuLY127cMvUES1Rhvq3S2lDUVjUAuD8ssewt1FGzL4RGyMkdLCA=","duong1997","sj7pf#4tpYh+Wo$"));
+//             String salt = createSalt();
+//             String passEncode = encodePassword("duong1997",salt);
+//             System.out.println(passEncode);
+//             System.out.println(salt);
+//             System.out.println(checkPassword(passEncode,"duong1997",salt));
 //         } catch (NoSuchAlgorithmException e) {
 //             throw new RuntimeException(e);
 //         }
