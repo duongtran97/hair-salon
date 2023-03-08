@@ -51,7 +51,7 @@ public class RegistryController {
         userEntities.setFullName(userFormEntities.getFullname());
         userEntities.setHashcode(CommonUtils.createSalt());
         userEntities.setIsDeleted(0);
-        userEntities.setPassword(CommonUtils.encodePassword(userFormEntities.getPassword(),userEntities.getHashcode()));
+        userEntities.setPassword(CommonUtils.encodePassword(userFormEntities.getPassword()));
         //        System.out.println(userFormEntities.getDateOfBirth());
 //        System.out.println(CommonUtils.convertStringToDate(userFormEntities.getDateOfBirth()));
         userRepository.save(userEntities);
