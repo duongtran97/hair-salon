@@ -27,37 +27,40 @@ public class LoginController {
     public String index(@ModelAttribute UserEntities userEntities,Model model) throws NoSuchAlgorithmException {
 //        UserService userService = new UserService();
         String email = userEntities.getEmail().trim();
-        System.out.println(email);
-        UserEntities user = new UserEntities();
-
-        boolean checkExistEmail = userRepository.existsByEmail(email);
-
-        if(checkExistEmail) {
-            boolean check = true;
-            List<UserEntities> userEntitiesLst = (List<UserEntities>) userRepository.findAll();
-            for (UserEntities userLst:userEntitiesLst) {
-                if(userLst.getEmail().equals(userEntities.getEmail())){
-                    user = userLst;
-                    break;
-                }
-            }
-            String password = user.getPassword().trim();
-            System.out.println(password);
-            String input = userEntities.getPassword();
-            check = CommonUtils.checkPassword(password,input);
-            if (check){
-                return "redirect:/product";
-            } else {
-                model.addAttribute("message","Nhập sai email hoặc password!");
-                model.addAttribute("userEntities",userEntities);
-                return "login";
-            }
-        }else{
-            model.addAttribute("message", "Không tồn tại user có địa chỉ mail này!");
-            model.addAttribute("userEntities", userEntities);
+        String input = userEntities.getPassword().trim();
+        if(email.isEmpty() || input.isEmpty()){
+            model.addAttribute("message","Nhập thiếu email và password!");
+            model.addAttribute("userEntities",userEntities);
             return "login";
+        }else {
+            UserEntities user = new UserEntities();
+            boolean checkExistEmail = userRepository.existsByEmail(email);
+            if(checkExistEmail) {
+                boolean check = true;
+                List<UserEntities> userEntitiesLst = (List<UserEntities>) userRepository.findAll();
+                for (UserEntities userLst:userEntitiesLst) {
+                    if(userLst.getEmail().equals(userEntities.getEmail())){
+                        user = userLst;
+                        break;
+                    }
+                }
+                String password = user.getPassword();
+                check = CommonUtils.checkPassword(password,input);
+                if (check){
+                    return "redirect:/product";
+                } else {
+                    model.addAttribute("message","Nhập sai email hoặc password!");
+                    model.addAttribute("userEntities",userEntities);
+                    return "login";
+                }
+            }else{
+                model.addAttribute("message", "Không tồn tại user có địa chỉ mail này<br> Nhập email đúng!");
+                model.addAttribute("userEntities", userEntities);
+                return "login";
 
+            }
         }
+
 
     }
 }
