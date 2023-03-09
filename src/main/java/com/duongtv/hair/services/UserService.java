@@ -18,8 +18,7 @@ public class UserService {
         return  checkExistEmail;
     }
     public boolean validatePassword( String input, String email) throws NoSuchAlgorithmException {
-            UserEntities user = new UserEntities();
-                boolean check = true;
+            UserEntities user = userRepository.findByEmail(email);
                 List<UserEntities> userEntitiesLst = (List<UserEntities>) userRepository.findAll();
                 for (UserEntities userLst:userEntitiesLst) {
                     if(userLst.getEmail().equals(email)){
@@ -27,8 +26,7 @@ public class UserService {
                         break;
                     }
                 }
-                check = CommonUtils.checkPassword(user.getPassword(),input);
 
-                return check;
+                return CommonUtils.checkPassword(user.getPassword(),input);
     }
 }
