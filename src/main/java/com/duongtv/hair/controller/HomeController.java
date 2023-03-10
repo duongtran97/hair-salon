@@ -37,4 +37,8 @@ public class HomeController {
         }
         return "user";
     }
+    @GetMapping("/dashboard")
+    public String dashboard(Model model){
+        return "admin/index";
+    }
 }

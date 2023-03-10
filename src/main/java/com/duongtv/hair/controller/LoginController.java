@@ -40,7 +40,14 @@ public class LoginController {
             }else{
                 check = userService.validatePassword(inputPassword,email);
                 if(check){
-                    return "redirect:/homepage";
+                    check = userService.checkAdminUser(email);
+                    //Nếu là admin chuyển tới dashboard
+                    if(check){
+                        return "redirect:/dashboard";
+                    }else {
+                        //user sẽ chuyển tới cửa hàng
+                        return "redirect:/homepage";
+                    }
                 }else {
                     model.addAttribute("message", "Sai mật khẩu hoặc password!");
                     model.addAttribute("userEntities", userEntities);

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 
@@ -12,13 +12,13 @@
     <title>SB Admin 2 - Dashboard</title>
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link th:href="@{admin_dashboard/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link th:href="@{admin_dashboard/css/sb-admin-2.min.css}" rel="stylesheet">
 
 </head>
 
@@ -144,7 +144,7 @@
 
             <!-- Sidebar Message -->
             <div class="sidebar-card d-none d-lg-flex">
-                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
+                <img class="sidebar-card-illustration mb-2" th:src="@{admin_dashboard/img/undraw_rocket.svg}" alt="...">
                 <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
                 <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
             </div>
@@ -502,7 +502,7 @@
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
                                     <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink1"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                                         </a>
@@ -738,21 +738,21 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script th:src="@{admin_dashboard/vendor/jquery/jquery.min.js}"></script>
+    <script th:src="@{admin_dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script th:src="@{admin_dashboard/vendor/jquery-easing/jquery.easing.min.js}"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script th:src="@{admin_dashboard/js/sb-admin-2.min.js}"></script>
 
     <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script th:src="@{admin_dashboard/vendor/chart.js/Chart.min.js}"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+    <script th:src="@{admin_dashboard/js/demo/chart-area-demo.js}"></script>
+    <script th:src="@{admin_dashboard/js/demo/chart-pie-demo.js}"></script>
 
 </body>
 

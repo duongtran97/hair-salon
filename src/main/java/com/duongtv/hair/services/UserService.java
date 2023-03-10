@@ -29,4 +29,16 @@ public class UserService {
 
                 return CommonUtils.checkPassword(user.getPassword(),input);
     }
+    public boolean checkAdminUser(String email){
+        UserEntities user = new UserEntities();
+        List<UserEntities> userEntitiesLst = (List<UserEntities>) userRepository.findAll();
+        for (UserEntities userLst:userEntitiesLst) {
+            if(userLst.getEmail().equals(email)){
+                user = userLst;
+                break;
+            }
+        }
+        boolean isAdmin = user.isAdmin() ;
+        return isAdmin;
+    }
 }
