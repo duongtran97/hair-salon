@@ -1,6 +1,5 @@
 package com.duongtv.hair.entities;
 
-import org.springframework.context.annotation.Bean;
 
 import java.sql.Date;
 

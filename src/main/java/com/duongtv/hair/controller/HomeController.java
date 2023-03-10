@@ -16,13 +16,13 @@ public class HomeController {
     public String index() {
         return "index";
     }
-    @PostMapping("/product")
+    @PostMapping("/homepage")
     public String home() {
-        return "product";
+        return "shop";
     }
-    @GetMapping("/product")
+    @GetMapping("/homepage")
     public String getProduct(){
-        return "product";
+        return "shop";
     }
     @GetMapping("/user")
     public String user(Model model) {
