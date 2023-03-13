@@ -12,7 +12,7 @@ public class ProductEntities {
     private String productName;
     private String code;
     private String type;
-    private String describe;
+    private String describeOfProduct;
     private String updatedBy;
     private Date createdAt;
     private Date updatedAt;
@@ -51,11 +51,11 @@ public class ProductEntities {
     }
 
     public String getDescribe() {
-        return describe;
+        return describeOfProduct;
     }
 
     public void setDescribe(String describe) {
-        this.describe = describe;
+        this.describeOfProduct = describe;
     }
 
     public String getUpdatedBy() {
