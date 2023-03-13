@@ -17,6 +17,8 @@ public class ProductEntities {
     private Date createdAt;
     private Date updatedAt;
     private boolean isDeleted;
+    private double priceOfProduct;
+    private String curCode;
 
     public Long getAutoId() {
         return autoId;
@@ -88,5 +90,29 @@ public class ProductEntities {
 
     public void setDeleted(boolean deleted) {
         isDeleted = deleted;
+    }
+
+    public String getDescribeOfProduct() {
+        return describeOfProduct;
+    }
+
+    public void setDescribeOfProduct(String describeOfProduct) {
+        this.describeOfProduct = describeOfProduct;
+    }
+
+    public double getPriceOfProduct() {
+        return priceOfProduct;
+    }
+
+    public void setPriceOfProduct(double priceOfProduct) {
+        this.priceOfProduct = priceOfProduct;
+    }
+
+    public String getCurCode() {
+        return curCode;
+    }
+
+    public void setCurCode(String curCode) {
+        this.curCode = curCode;
     }
 }

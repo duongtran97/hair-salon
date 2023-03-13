@@ -51,6 +51,9 @@ public class CommonUtils {
         startDate =  df.parse(input);
         return startDate;
     }
+//    public static String createBillCode(){
+//
+//    }
 //     public static void main(String[] args) {
 //         try {
 //             String salt = createSalt();

@@ -1,5 +1,7 @@
 package com.duongtv.hair.controller;
 
+import com.duongtv.hair.entities.ProductEntities;
+import com.duongtv.hair.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,10 +10,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.duongtv.hair.repository.UserRepository;
 
+import java.util.List;
+
 @Controller
 public class HomeController {
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private ProductService productService;
     @GetMapping("/")
     public String index() {
         return "index";
@@ -21,7 +27,9 @@ public class HomeController {
         return "user/shop";
     }
     @GetMapping("/homepage")
-    public String getProduct(){
+    public String getProduct(Model model){
+        List<ProductEntities> productEntitiesLst = productService.getAllProduct();
+        model.addAttribute("productEntitiesLst",productEntitiesLst);
         return "user/shop";
     }
     @GetMapping("/user")

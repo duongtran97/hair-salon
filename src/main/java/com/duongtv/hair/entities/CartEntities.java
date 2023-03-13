@@ -1,6 +1,8 @@
 package com.duongtv.hair.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import java.sql.Date;
@@ -8,14 +10,17 @@ import java.sql.Date;
 @Entity
 public class CartEntities {
     @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long autoId;
     private String codeOfProduct;
     private String methodOfPay;
-    private String priceOfProduct;
+    private double priceOfProduct;
     private String updatedBy;
     private Date createdAt;
     private Date updatedAt;
     private boolean isDeleted;
+    private String billCode;
+
 
     public Long getAutoId() {
         return autoId;
@@ -41,11 +46,11 @@ public class CartEntities {
         this.methodOfPay = methodOfPay;
     }
 
-    public String getPriceOfProduct() {
+    public double getPriceOfProduct() {
         return priceOfProduct;
     }
 
-    public void setPriceOfProduct(String priceOfProduct) {
+    public void setPriceOfProduct(double priceOfProduct) {
         this.priceOfProduct = priceOfProduct;
     }
 
