@@ -18,11 +18,11 @@ public class HomeController {
     }
     @PostMapping("/homepage")
     public String home() {
-        return "shop";
+        return "user/shop";
     }
     @GetMapping("/homepage")
     public String getProduct(){
-        return "shop";
+        return "user/shop";
     }
     @GetMapping("/user")
     public String user(Model model) {
