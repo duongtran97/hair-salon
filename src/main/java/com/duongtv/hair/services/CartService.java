@@ -7,6 +7,7 @@ import com.duongtv.hair.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -15,8 +16,9 @@ public class CartService {
     private CartRepository cartRepository;
     @Autowired
     private ProductRepository productRepository;
-    public void addProductToCart(String id)throws Exception{
+    public int addProductToCart(String id)throws Exception{
         Long autoId = Long.valueOf(id);
+        int countForProduct = 0;
         Optional<ProductEntities> product = productRepository.findById(autoId);
         CartEntities cartEntities = new CartEntities();
         cartEntities.setCodeOfProduct(product.get().getCode());
@@ -24,5 +26,8 @@ public class CartService {
         cartEntities.setPriceOfProduct(product.get().getPriceOfProduct());
         cartEntities.setUpdatedBy("duongtv");
         cartRepository.save(cartEntities);
+        countForProduct  = cartRepository.findDistinctCartByCodeOfProduct();
+//        countForProduct = productLstOnCart.size();
+        return countForProduct;
     }
 }

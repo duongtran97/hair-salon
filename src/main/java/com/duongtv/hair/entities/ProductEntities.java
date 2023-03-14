@@ -19,6 +19,7 @@ public class ProductEntities {
     private boolean isDeleted;
     private double priceOfProduct;
     private String curCode;
+    private String path;
 
     public Long getAutoId() {
         return autoId;
@@ -114,5 +115,13 @@ public class ProductEntities {
 
     public void setCurCode(String curCode) {
         this.curCode = curCode;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 }
