@@ -3,12 +3,15 @@ package com.duongtv.hair.controller;
 import com.duongtv.hair.entities.CartEntities;
 import com.duongtv.hair.entities.ProductEntities;
 import com.duongtv.hair.services.CartService;
+import com.duongtv.hair.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 @Controller
 public class CartController {
@@ -25,6 +28,6 @@ public class CartController {
     public String addProductFromShopToCart(@RequestParam String id, Model model)throws Exception{
         int countForPRoduct = cartService.addProductToCart(id);
         model.addAttribute("countForPRoduct",countForPRoduct);
-        return "user/shop";
+        return "redirect:homepage";
     }
 }

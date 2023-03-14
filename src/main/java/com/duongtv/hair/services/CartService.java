@@ -26,8 +26,9 @@ public class CartService {
         cartEntities.setPriceOfProduct(product.get().getPriceOfProduct());
         cartEntities.setUpdatedBy("duongtv");
         cartRepository.save(cartEntities);
-        countForProduct  = cartRepository.findDistinctCartByCodeOfProduct();
+//        countForProduct  = cartRepository.findDistinctCartByCodeOfProduct();
 //        countForProduct = productLstOnCart.size();
+
         return countForProduct;
     }
 }
