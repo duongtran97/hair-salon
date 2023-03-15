@@ -38,7 +38,8 @@ public class CartService {
 //        countForProduct = productLstOnCart.size();
     }
     public int countProductOnCart(){
-        List<CartEntities> lstProductOnCart = cartRepository.findCodeOfProductDistinctByUpdatedBy("duongtv");
+//        List<CartEntities> lstProductOnCart = cartRepository.findCodeOfProductDistinctByUpdatedBy("duongtv");
+        List<String> lstProductOnCart = cartRepository.findDistinctCodeOfProductByUpdatedBy("duongtv");
         return lstProductOnCart.size();
     }
 }

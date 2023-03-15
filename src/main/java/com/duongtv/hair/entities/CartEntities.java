@@ -20,6 +20,7 @@ public class CartEntities {
     private Date updatedAt;
     private boolean isDeleted;
     private String billCode;
+    private boolean status;
 
     public String getBillCode() {
         return billCode;
@@ -91,5 +92,13 @@ public class CartEntities {
 
     public void setDeleted(boolean deleted) {
         isDeleted = deleted;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }

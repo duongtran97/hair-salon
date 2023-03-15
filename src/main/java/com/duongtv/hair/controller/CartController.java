@@ -20,8 +20,7 @@ public class CartController {
     @GetMapping("/cart")
     public String openCart(Model model){
         model.addAttribute("cartEntities",new CartEntities());
-        boolean checkOnCartPage = true;
-        model.addAttribute("checkOnCartPage",checkOnCartPage);
+
         return "user/cart";
     }
     @GetMapping("/cart/add")

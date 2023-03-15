@@ -61,13 +61,11 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark
-
-              </td>
-              <td>Otto</td>
-              <td>@mdo</td>
+            <tr th:each="product:$lstProductInCartEntities">
+              <th scope="row" th:text="${count++}"></th>
+              <td th:text="*{product.productName}"></td>
+              <td th:text="*{product.priceOfProduct}"></td>
+              <td th:text="*{product.amount}"></td>
               <td>
                 <a href="http://">
                   <span class="material-symbols-outlined">
