@@ -1,6 +1,7 @@
 package com.duongtv.hair.controller;
 
 import com.duongtv.hair.entities.ProductEntities;
+import com.duongtv.hair.services.CartService;
 import com.duongtv.hair.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,8 @@ public class HomeController {
     private UserRepository userRepository;
     @Autowired
     private ProductService productService;
+    @Autowired
+    private CartService cartService;
     @GetMapping("/")
     public String index() {
         return "index";
@@ -30,6 +33,8 @@ public class HomeController {
     public String getProduct(Model model){
         List<ProductEntities> productEntitiesLst = productService.getAllProduct();
         model.addAttribute("productEntitiesLst",productEntitiesLst);
+        int countForProduct = cartService.countProductOnCart();
+        model.addAttribute("countForProduct",countForProduct);
         return "user/shop";
     }
     @GetMapping("/user")

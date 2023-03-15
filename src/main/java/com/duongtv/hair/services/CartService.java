@@ -4,6 +4,7 @@ import com.duongtv.hair.entities.CartEntities;
 import com.duongtv.hair.entities.ProductEntities;
 import com.duongtv.hair.repository.CartRepository;
 import com.duongtv.hair.repository.ProductRepository;
+import com.duongtv.hair.utils.CommonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,11 +13,17 @@ import java.util.Optional;
 
 @Service
 public class CartService {
+    private String billCode;
+
+    public CartService() {
+        this.billCode = CommonUtils.createBillCode();
+    }
+
     @Autowired
     private CartRepository cartRepository;
     @Autowired
     private ProductRepository productRepository;
-    public int addProductToCart(String id)throws Exception{
+    public void addProductToCart(String id)throws Exception{
         Long autoId = Long.valueOf(id);
         int countForProduct = 0;
         Optional<ProductEntities> product = productRepository.findById(autoId);
@@ -24,11 +31,14 @@ public class CartService {
         cartEntities.setCodeOfProduct(product.get().getCode());
         cartEntities.setDeleted(false);
         cartEntities.setPriceOfProduct(product.get().getPriceOfProduct());
+        cartEntities.setBillCode(billCode);
         cartEntities.setUpdatedBy("duongtv");
         cartRepository.save(cartEntities);
 //        countForProduct  = cartRepository.findDistinctCartByCodeOfProduct();
 //        countForProduct = productLstOnCart.size();
-
-        return countForProduct;
+    }
+    public int countProductOnCart(){
+        List<CartEntities> lstProductOnCart = cartRepository.findCodeOfProductDistinctByUpdatedBy("duongtv");
+        return lstProductOnCart.size();
     }
 }

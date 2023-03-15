@@ -7,6 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface CartRepository extends CrudRepository<CartEntities,Long> {
-//    int findDistinctCartByCodeOfProduct();
-
+    List<CartEntities> findAllByUpdatedBy(String updatedBy);
+    List<CartEntities> findDistinctCodeOfProductByUpdatedBy(String updatedBy);
+    List<CartEntities> findCodeOfProductDistinctByUpdatedBy(String updatedBy);
 }

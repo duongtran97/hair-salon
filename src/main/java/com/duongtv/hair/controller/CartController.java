@@ -26,8 +26,8 @@ public class CartController {
     }
     @GetMapping("/cart/add")
     public String addProductFromShopToCart(@RequestParam String id, Model model)throws Exception{
-        int countForPRoduct = cartService.addProductToCart(id);
-        model.addAttribute("countForPRoduct",countForPRoduct);
-        return "redirect:homepage";
+        cartService.addProductToCart(id);
+
+        return "redirect:/homepage";
     }
 }

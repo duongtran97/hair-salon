@@ -21,6 +21,13 @@ public class CartEntities {
     private boolean isDeleted;
     private String billCode;
 
+    public String getBillCode() {
+        return billCode;
+    }
+
+    public void setBillCode(String billCode) {
+        this.billCode = billCode;
+    }
 
     public Long getAutoId() {
         return autoId;
