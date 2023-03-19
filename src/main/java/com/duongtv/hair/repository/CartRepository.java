@@ -12,6 +12,8 @@ public interface CartRepository extends JpaRepository<CartEntities,Long> {
     List<CartEntities> findAllByUpdatedBy(String updatedBy);
     @Query("select distinct codeOfProduct from CartEntities where updatedBy = :updatedBy")
     List<String> findDistinctCodeOfProductByUpdatedBy(String updatedBy);
-    @Query("select autoId, from")
-    List<ProductEntities> findAllProductAddedOnCart(String updatedBy);
+//    @Query("select autoId, from")
+    List<CartEntities> findAllProductAddedOnCartByBillcode(String updatedBy);
+    @Query("select count(codeOfProduct) from CartEntities where billCode = : billCode group by codeOfProduct ")
+    int countProductOnBillCode(String billCode);
 }

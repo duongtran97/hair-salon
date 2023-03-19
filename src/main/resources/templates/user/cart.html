@@ -61,37 +61,11 @@
             </tr>
           </thead>
           <tbody>
-            <tr th:each="product:$lstProductInCartEntities">
+            <tr th:each="product:${lstProductInCartEntities}">
               <th scope="row" th:text="${count++}"></th>
-              <td th:text="*{product.productName}"></td>
-              <td th:text="*{product.priceOfProduct}"></td>
-              <td th:text="*{product.amount}"></td>
-              <td>
-                <a href="http://">
-                  <span class="material-symbols-outlined">
-                    delete
-                    </span>
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-              <td>
-                <a href="http://">
-                  <span class="material-symbols-outlined">
-                    delete
-                    </span>
-                </a>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
+              <td th:text="${product.productName}"></td>
+              <td th:text="${product.priceOfProduct}"></td>
+              <td th:text="${product.amount}"></td>
               <td>
                 <a href="http://">
                   <span class="material-symbols-outlined">

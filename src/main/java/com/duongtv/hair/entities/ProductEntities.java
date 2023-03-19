@@ -20,8 +20,6 @@ public class ProductEntities {
     private double priceOfProduct;
     private String curCode;
     private String path;
-    private int amount;
-
     public Long getAutoId() {
         return autoId;
     }
@@ -126,11 +124,4 @@ public class ProductEntities {
         this.path = path;
     }
 
-    public int getAmount() {
-        return amount;
-    }
-
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
 }

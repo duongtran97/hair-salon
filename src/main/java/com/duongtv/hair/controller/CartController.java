@@ -20,7 +20,7 @@ public class CartController {
     @GetMapping("/cart")
     public String openCart(Model model){
         model.addAttribute("cartEntities",new CartEntities());
-
+        List<CartEntities> lstProductInCartEntities = cartService.getLstProductAndSumValueOfBill();
         return "user/cart";
     }
     @GetMapping("/cart/add")

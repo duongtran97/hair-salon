@@ -8,6 +8,7 @@ import com.duongtv.hair.utils.CommonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,6 +35,7 @@ public class CartService {
         cartEntities.setBillCode(billCode);
         cartEntities.setUpdatedBy("duongtv");
         cartRepository.save(cartEntities);
+//        productRepository.
 //        countForProduct  = cartRepository.findDistinctCartByCodeOfProduct();
 //        countForProduct = productLstOnCart.size();
     }
@@ -41,5 +43,13 @@ public class CartService {
 //        List<CartEntities> lstProductOnCart = cartRepository.findCodeOfProductDistinctByUpdatedBy("duongtv");
         List<String> lstProductOnCart = cartRepository.findDistinctCodeOfProductByUpdatedBy("duongtv");
         return lstProductOnCart.size();
+    }
+    public List<CartEntities> getLstProductAndSumValueOfBill(){
+        List<CartEntities> lstProductOncart = cartRepository.findAllProductAddedOnCartByBillcode("");
+//        int countcartRepository = cartRepository.countProductOnBillCode();
+        for (CartEntities cartElement:lstProductOncart) {
+
+        }
+        return lstProductOncart;
     }
 }
