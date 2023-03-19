@@ -45,7 +45,7 @@ public class CartService {
         return lstProductOnCart.size();
     }
     public List<CartEntities> getLstProductAndSumValueOfBill(){
-        List<CartEntities> lstProductOncart = cartRepository.findAllProductAddedOnCartByBillcode("");
+        List<CartEntities> lstProductOncart = cartRepository.findAllProductAddedOnCartByBillCode("");
 //        int countcartRepository = cartRepository.countProductOnBillCode();
         for (CartEntities cartElement:lstProductOncart) {
 

@@ -1,7 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="HairApplication" type="Application" factoryName="Application">
     <option name="ALTERNATIVE_JRE_PATH" value="19" />
-    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
     <option name="MAIN_CLASS_NAME" value="com.duongtv.hair.HairApplication" />
     <module name="hair" />
     <method v="2">
