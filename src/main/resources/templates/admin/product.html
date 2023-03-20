@@ -466,61 +466,50 @@
                     <form action="#" >
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                                <label class="input-group-text" for="inputGroupSelect01">Chọn loại sản phẩm</label>
                             </div>
                             <select class="custom-select" id="inputGroupSelect01">
-                                <option selected>Choose...</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <option selected>Chọn loại sản phẩm</option>
+                                <option value="1">ATOMY</option>
+                                <option value="2">AROMA</option>
                             </select>
                         </div>
-
-                        <div class="input-group mb-3">
-                            <select class="custom-select" id="inputGroupSelect02">
-                                <option selected>Choose...</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                            <div class="input-group-append">
-                                <label class="input-group-text" for="inputGroupSelect02">Options</label>
-                            </div>
+                        <div class="form-group">
+                            <label for="priceOfProduct">Giá sản phẩm</label>
+                            <input type="text" class="form-control" id="priceOfProduct">
+                        </div>
+                        <div class="form-group">
+                            <label for="describeOfProduct">Mô tả sản phẩm</label>
+                            <textarea  type="text-" class="form-control" id="describeOfProduct"></textarea>
                         </div>
 
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <button class="btn btn-outline-secondary" type="button">Button</button>
+                                <label class="input-group-text" for="inputGroupSelect01">Loại tiền tệ</label>
                             </div>
-                            <select class="custom-select" id="inputGroupSelect03" aria-label="Example select with button addon">
-                                <option selected>Choose...</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <select class="custom-select" id="inputGroupSelect01">
+                                <option selected>Chọn loại sản phẩm</option>
+                                <option value="VND">đ</option>
+                                <option value="USD">$</option>
+                                <option value="YEN">円</option>
                             </select>
                         </div>
 
-                        <div class="input-group">
-                            <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
-                                <option selected>Choose...</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                            <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button">Button</button>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupFileAddon01">Thêm hình ảnh</span>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
-                        </div>
-                        <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="path" aria-describedby="inputGroupFileAddon01">
+                                <label class="custom-file-label" for="path">Choose file</label>
+                            </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Thêm mới</button>
                     </form>
+                    </div>
+
+                    <div class="col-6" >
+                        <img class="img-fluid" th:src="@{/images/lotus-with-hands-1889661_960_720.png}" alt="" srcset="">
                     </div>
                     </div>
                     <!-- Content Row -->
