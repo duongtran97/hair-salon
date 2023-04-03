@@ -1,7 +1,7 @@
 package com.duongtv.hair.controller;
 
 import com.duongtv.hair.exceptionhandle.StorageFileNotFoundException;
-import com.duongtv.hair.services.StorageService;
+import com.duongtv.hair.iservice.IStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -18,10 +18,10 @@ import java.util.stream.Collectors;
 
 @Controller
 public class FileUploadController {
-    private final StorageService storageService;
+    private final IStorageService storageService;
 
     @Autowired
-    public FileUploadController(StorageService storageService) {
+    public FileUploadController(IStorageService storageService) {
         this.storageService = storageService;
     }
     @GetMapping("/admin/upload")
