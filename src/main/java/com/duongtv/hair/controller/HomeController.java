@@ -1,5 +1,8 @@
 package com.duongtv.hair.controller;
 
+import com.duongtv.hair.entities.ProductEntities;
+import com.duongtv.hair.services.CartService;
+import com.duongtv.hair.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,21 +11,31 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.duongtv.hair.repository.UserRepository;
 
+import java.util.List;
+
 @Controller
 public class HomeController {
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private ProductService productService;
+    @Autowired
+    private CartService cartService;
     @GetMapping("/")
     public String index() {
         return "index";
     }
-    @PostMapping("/product")
+    @PostMapping("/homepage")
     public String home() {
-        return "product";
+        return "user/shop";
     }
-    @GetMapping("/product")
-    public String getProduct(){
-        return "product";
+    @GetMapping("/homepage")
+    public String getProduct(Model model){
+        List<ProductEntities> productEntitiesLst = productService.getAllProduct();
+        model.addAttribute("productEntitiesLst",productEntitiesLst);
+        int countForProduct = cartService.countProductOnCart();
+        model.addAttribute("countForProduct",countForProduct);
+        return "user/shop";
     }
     @GetMapping("/user")
     public String user(Model model) {
@@ -36,5 +49,9 @@ public class HomeController {
             System.err.println(e.getMessage());
         }
         return "user";
+    }
+    @GetMapping("/dashboard")
+    public String dashboard(Model model){
+        return "admin/index";
     }
 }

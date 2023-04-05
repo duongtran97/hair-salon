@@ -34,7 +34,7 @@ public class RegistryController {
         model.addAttribute("VillageLst",villageRepository.findAll());
         model.addAttribute("LandLst",landRepository.findAll());
         model.addAttribute("userFormEntities",new UserFormEntities());
-        return "registry";
+        return "user/registry";
     }
 
     @PostMapping("/registry")

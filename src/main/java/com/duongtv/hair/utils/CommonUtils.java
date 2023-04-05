@@ -51,6 +51,20 @@ public class CommonUtils {
         startDate =  df.parse(input);
         return startDate;
     }
+    public static String createBillCode(){
+        Random random = new Random();
+        StringBuilder billCode = new StringBuilder("BILL");
+        int i = 1;
+        char charAscii = (char) random.nextInt(48,57);
+        while(i<16){
+            billCode.append(charAscii);
+            charAscii = (char) random.nextInt(48,57);
+            i++;
+        }
+
+        return billCode.toString();
+
+    }
 //     public static void main(String[] args) {
 //         try {
 //             String salt = createSalt();
