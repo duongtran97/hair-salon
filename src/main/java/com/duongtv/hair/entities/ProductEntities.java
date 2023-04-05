@@ -20,6 +20,16 @@ public class ProductEntities {
     private double priceOfProduct;
     private String curCode;
     private String path;
+    private PhotoEntities photo;
+
+    public PhotoEntities getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(PhotoEntities photo) {
+        this.photo = photo;
+    }
+
     public Long getAutoId() {
         return autoId;
     }
